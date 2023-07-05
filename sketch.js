@@ -1,5 +1,5 @@
 let button = document.getElementById("darkmodeToggle");
-let darkmode = false;
+let darkmode = JSON.parse(localStorage.getItem("darkmode")) || false;
 
 let foregroundColor = "#202020";
 let backgroundColor = "#F7F0F0";
@@ -11,6 +11,24 @@ let yOffset = 0;
 let time = 0;
 
 let points = [];
+
+function toggleDarkmode(toggle) {
+  darkmode = toggle ? !darkmode : darkmode;
+  if (darkmode) {
+    button.classList.add("on");
+    document.body.classList.add("darkmode");
+    foregroundColor = "#F7F0F0";
+    backgroundColor = "#202020";
+  } else {
+    button.classList.remove("on");
+    document.body.classList.remove("darkmode");
+    foregroundColor = "#202020";
+    backgroundColor = "#F7F0F0";
+  }
+  localStorage.setItem("darkmode", darkmode);
+}
+
+toggleDarkmode(false);
 
 function drawMarchingSquare(a, b, c, d, x, y) {
   let total = a * 8 + b * 4 + c * 2 + d * 1;
@@ -128,18 +146,5 @@ function draw() {
 }
 
 button.addEventListener("click", () => {
-  if (darkmode) {
-    darkmode = false;
-    button.classList.remove("on");
-    document.body.classList.remove("darkmode");
-
-    foregroundColor = "#202020";
-    backgroundColor = "#F7F0F0";
-  } else {
-    darkmode = true;
-    button.classList.add("on");
-    document.body.classList.add("darkmode");
-    foregroundColor = "#F7F0F0";
-    backgroundColor = "#202020";
-  }
+  toggleDarkmode(true);
 });
