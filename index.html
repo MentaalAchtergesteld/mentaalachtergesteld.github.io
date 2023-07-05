@@ -2,25 +2,107 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>website</title>
-    <style>
-      body {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        min-height: 100vh;
-        min-width: 100vw;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"
+      integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./sketch.js" defer></script>
+    <title>Marching Squares</title>
   </head>
   <body>
-    <h1>website</h1>
-    <h2>website</h2>
-    <h3>website</h3>
-    <span>website</span>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap");
+
+      :root {
+        --foreground: #202020;
+        --background: #f7f0f0;
+      }
+
+      .darkmode {
+        --foreground: #f7f0f0;
+        --background: #202020;
+      }
+
+      body {
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        user-select: none;
+        font-family: "Poppins", sans-serif;
+        color: var(--foreground);
+        transition: 0.5s color;
+      }
+
+      .centered-fixed {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 400;
+        margin: 0;
+      }
+      h2 {
+        font-weight: 300;
+      }
+
+      #darkmodeToggle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0.5vw;
+        aspect-ratio: 1/1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.75rem;
+        background: none;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 0.5s all;
+      }
+
+      #darkmodeToggle.on {
+        transform: rotate(180deg);
+      }
+
+      svg {
+        transition: 0.5s all;
+        fill: var(--foreground);
+      }
+    </style>
+
+    <div class="centered-fixed">
+      <h1>mentaal achtergesteld</h1>
+      <h2>wauw</h2>
+    </div>
+
+    <button id="darkmodeToggle">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 512 512"
+      >
+        <path
+          d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"
+        />
+      </svg>
+    </button>
   </body>
 </html>
