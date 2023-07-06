@@ -44,7 +44,6 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
 
   let selectedAlgorithm = round(random(algorithms.size - 1));
-  console.log(selectedAlgorithm);
   let cur = 0;
   algorithms.forEach((algorithm) => {
     algorithm
